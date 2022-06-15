@@ -27,12 +27,12 @@ export default function ProfileBubble({ pfpUrl }: Props) {
       </div>
 
       {overlay &&
-        <button
+        <Link to="/"
           className="p-36 rounded-full border-8 absolute inset-0 bg-black"
           onMouseLeave={() => setOverlay(!overlay)}
         >
 
-        </button>
+        </Link>
       }
 
     </div>

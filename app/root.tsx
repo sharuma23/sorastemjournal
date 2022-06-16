@@ -12,9 +12,10 @@ import {
 } from "@remix-run/react";
 
 import tailwindStylesheetUrl from "./styles/tailwind.css";
+import customCSS from 'app/styles/custom.css';
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
+  return [{ rel: "stylesheet", href: customCSS }];
 };
 
 export const meta: MetaFunction = () => ({

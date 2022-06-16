@@ -1,0 +1,194 @@
+@font-face {
+  font-family: "Harding Text Web Regular";
+  src: url("//db.onlinewebfonts.com/t/7732caef9ed946f7916b3f650e8837c2.eot");
+  src: url("//db.onlinewebfonts.com/t/7732caef9ed946f7916b3f650e8837c2.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/7732caef9ed946f7916b3f650e8837c2.woff2") format("woff2"),
+    url("//db.onlinewebfonts.com/t/7732caef9ed946f7916b3f650e8837c2.woff") format("woff"),
+    url("//db.onlinewebfonts.com/t/7732caef9ed946f7916b3f650e8837c2.ttf") format("truetype"),
+    url("//db.onlinewebfonts.com/t/7732caef9ed946f7916b3f650e8837c2.svg#Harding Text Web Regular")
+      format("svg");
+}
+
+.main {
+  margin: 40px auto;
+  width: 800px;
+}
+
+.c-article-identifiers {
+  list-style: none;
+  font-size: 1rem;
+  line-height: 1.3;
+  display: flex;
+  flex-wrap: wrap;
+  color: #6f6f6f;
+  padding: 0;
+  margin: 0 0 8px;
+  box-sizing: inherit;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    "Helvetica Neue", sans-serif;
+  letter-spacing: 0;
+}
+
+.c-article-identifiers__item {
+  border-right: 1px solid #6f6f6f;
+  margin-right: 8px;
+  padding-right: 8px;
+}
+
+.c-article-identifiers__item:first-child {
+  font-weight: bold;
+}
+
+.c-article-identifiers__item:last-child {
+  margin-right: 0;
+  padding-right: 0;
+  border-right: 0;
+}
+
+.title {
+  font-size: 2.813rem;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: min(max(-0.011715625rem, 4vw), -0.0390625rem);
+  color: #222;
+  margin-bottom: 16px;
+  font-family: "Harding Text Web Regular", Palatino, serif;
+}
+
+.blurb {
+  font-family: "Harding Text Web Regular", Palatino, serif;
+  margin-bottom: 24px;
+  font-weight: 700;
+  line-height: 1.6;
+  font-size: 1.125rem;
+  letter-spacing: normal;
+  color: #222;
+  box-sizing: inherit;
+}
+
+.author {
+  list-style: none;
+  font-size: 1rem;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  color: #6f6f6f;
+  padding: 0;
+  margin: 0 0 8px;
+  box-sizing: inherit;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    "Helvetica Neue", sans-serif;
+  letter-spacing: 0;
+  margin-bottom: 24px;
+}
+
+.author span {
+  padding-right: 2.5px;
+}
+
+.author span:last-child {
+  padding-right: 0;
+}
+
+.author li {
+  border-right: 1px solid #6f6f6f;
+  margin-right: 8px;
+  padding-right: 8px;
+}
+
+.author li:first-child {
+  font-weight: bold;
+}
+
+.author img {
+  height: 25px;
+  width: auto;
+  margin-right: 4px;
+  border-right: 0;
+  display: inline;
+}
+
+button {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  border-left: 0;
+  border-right: 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: middle;
+  align-items: center;
+  border-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+  "Helvetica Neue", sans-serif;
+  color: #6f6f6f;
+}
+
+button a .underlined {
+  text-decoration: underline;
+}
+
+button a .no-underline {
+  text-decoration: none;
+  padding-right: 1px;
+}
+
+.author li:last-child {
+  border-right: 0;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.body {
+  margin-top: 30px;
+  font-family: "Harding Text Web Regular", Palatino, serif;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  color: #222;
+  font-size: 18px;
+}
+
+.body p {
+  margin: 0 0 28px;
+  padding: 0;
+}
+
+.editor-paragraph {
+  color: black;
+  margin: 0;
+}
+
+.toolbar {
+  display: flex;
+  justify-items: center;
+}
+
+.notselected {
+  display: flex;
+  justify-items: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 4px;
+  padding: 4px;
+  background-color: transparent;
+  margin-right: 4px;
+}
+
+.selected  {
+  background-color: rgb(214, 214, 214);
+  padding: 2px;
+  display: flex;
+  justify-items: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 4px;
+  padding: 4px;
+  margin-right: 4px;
+}

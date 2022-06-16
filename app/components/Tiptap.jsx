@@ -1,7 +1,7 @@
 import { EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Image from '@tiptap/extension-image';
-import { useCallback } from 'react';
+import {FaBold, FaItalic, FaHeading, FaParagraph, FaList, FaUndo, FaRedo} from 'react-icons/fa';
 
 const MenuBar = ({ editor }) => {
   if (!editor) {
@@ -9,116 +9,42 @@ const MenuBar = ({ editor }) => {
   }
 
   return (
-    <>
+    <div className= "toolbar">
       <button
         onClick={() => editor.chain().focus().toggleBold().run()}
-        className={editor.isActive('bold') ? 'is-active' : ''}
+        className={editor.isActive('bold') ? 'selected' : 'notselected'}
       >
-        <span className="bg-black"> bold</span>
+        <FaBold/>
       </button>
       <button
         onClick={() => editor.chain().focus().toggleItalic().run()}
-        className={editor.isActive('italic') ? 'is-active' : ''}
+        className={editor.isActive('italic') ? 'selected' : 'notselected'}
       >
-        italic
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleStrike().run()}
-        className={editor.isActive('strike') ? 'is-active' : ''}
-      >
-        strike
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleCode().run()}
-        className={editor.isActive('code') ? 'is-active' : ''}
-      >
-        code
-      </button>
-      <button onClick={() => editor.chain().focus().unsetAllMarks().run()}>
-        clear marks
-      </button>
-      <button onClick={() => editor.chain().focus().clearNodes().run()}>
-        clear nodes
-      </button>
-      <button
-        onClick={() => editor.chain().focus().setParagraph().run()}
-        className={editor.isActive('paragraph') ? 'is-active' : ''}
-      >
-        paragraph
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-        className={editor.isActive('heading', { level: 1 }) ? 'is-active' : ''}
-      >
-        h1
+        <FaItalic/>
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-        className={editor.isActive('heading', { level: 2 }) ? 'is-active' : ''}
+        className={editor.isActive('heading', { level: 2 }) ? 'selected' : 'notselected'}
       >
-        h2
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
-        className={editor.isActive('heading', { level: 3 }) ? 'is-active' : ''}
-      >
-        h3
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
-        className={editor.isActive('heading', { level: 4 }) ? 'is-active' : ''}
-      >
-        h4
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
-        className={editor.isActive('heading', { level: 5 }) ? 'is-active' : ''}
-      >
-        h5
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
-        className={editor.isActive('heading', { level: 6 }) ? 'is-active' : ''}
-      >
-        h6
+        <FaHeading/>
       </button>
       <button
         onClick={() => editor.chain().focus().toggleBulletList().run()}
-        className={editor.isActive('bulletList') ? 'is-active' : ''}
+        className={editor.isActive('bulletList') ? 'selected' : 'notselected'}
       >
-        bullet list
+        <FaList/>
       </button>
-      <button
-        onClick={() => editor.chain().focus().toggleOrderedList().run()}
-        className={editor.isActive('orderedList') ? 'is-active' : ''}
+      <button onClick={() => editor.chain().focus().undo().run()}
+      className={editor.isActive('undo') ? 'selected' : 'notselected'}
       >
-        ordered list
+        <FaUndo/>
       </button>
-      <button
-        onClick={() => editor.chain().focus().toggleCodeBlock().run()}
-        className={editor.isActive('codeBlock') ? 'is-active' : ''}
+      <button onClick={() => editor.chain().focus().redo().run()}
+      className={editor.isActive('redo') ? 'selected' : 'notselected'}
       >
-        code block
+        <FaRedo/>
       </button>
-      <button
-        onClick={() => editor.chain().focus().toggleBlockquote().run()}
-        className={editor.isActive('blockquote') ? 'is-active' : ''}
-      >
-        blockquote
-      </button>
-      <button onClick={() => editor.chain().focus().setHorizontalRule().run()}>
-        horizontal rule
-      </button>
-      <button onClick={() => editor.chain().focus().setHardBreak().run()}>
-        hard break
-      </button>
-      <button onClick={() => editor.chain().focus().undo().run()}>
-        undo
-      </button>
-      <button onClick={() => editor.chain().focus().redo().run()}>
-        redo
-      </button>
-    </>
+    </div>
   )
 }
 
@@ -130,7 +56,13 @@ export default function Tiptap({ setOutput, viewOnly, passedContent}) {
     //if viewOnly is true, that means editable is false (inverts value)
     editable: !viewOnly,
     extensions: [
-      StarterKit,
+      StarterKit.configure({
+        paragraph: {
+          HTMLAttributes: {
+            class: "editor-paragraph"
+          }
+        }
+      }),
       Image,
     ],
     content: passedContent,
@@ -142,14 +74,13 @@ export default function Tiptap({ setOutput, viewOnly, passedContent}) {
 
   return (
     <>
-
       {!viewOnly ?
         <div>
-          < MenuBar editor={editor} />
-          <EditorContent editor={editor} />
+          <MenuBar editor={editor} />
+          <EditorContent editor={editor}/>
         </div>
         :
-        <div>
+        <div className="main">
           <EditorContent editor={editor} />
         </div>
       }

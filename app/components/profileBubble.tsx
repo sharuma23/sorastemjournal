@@ -1,14 +1,15 @@
 import { Link } from "@remix-run/react";
 import { defaultMaxListeners } from "events";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import banana from "public/defaultbanana.png"
- 
+
 
 interface Props {
-  pfpUrl?: string
+  pfpUrl?: string,
+  articleID?: string,
 }
 
-export default function ProfileBubble({ pfpUrl }: Props) {
+export default function ProfileBubble({ pfpUrl, articleID }: Props) {
   const [overlay, setOverlay] = useState<boolean>(false);
 
   const styles = {
@@ -16,6 +17,7 @@ export default function ProfileBubble({ pfpUrl }: Props) {
       backgroundImage: pfpUrl ? `url('${pfpUrl}')` :  `url('${banana}')`
     }
   } as const;
+
 
   return (
     <div className="relative">
@@ -27,7 +29,7 @@ export default function ProfileBubble({ pfpUrl }: Props) {
       </div>
 
       {overlay &&
-        <Link to="/"
+        <Link to={`articles/${articleID}`}
           className="p-36 rounded-full border-8 absolute inset-0 bg-black"
           onMouseLeave={() => setOverlay(!overlay)}
         >

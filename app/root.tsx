@@ -3,6 +3,7 @@ import type {
   MetaFunction,
 } from "@remix-run/node";
 import {
+  Link,
   Links,
   LiveReload,
   Meta,
@@ -15,7 +16,8 @@ import tailwindStylesheetUrl from "./styles/tailwind.css";
 import customCSS from 'app/styles/custom.css';
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: customCSS }];
+  return [{ rel: "stylesheet", href: customCSS },
+  ];
 };
 
 export const meta: MetaFunction = () => ({
@@ -32,6 +34,15 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full">
+        <div id="header">
+          <Link to="/articles" prefetch="intent">
+            <img className="soraLogo" src="https://cdn.discordapp.com/attachments/895795779439038464/987187170336985108/GRAY_SORA_LOGO.png" />
+          </Link>
+  
+          <Link to="/articles/new" style={{padding: '20px'}}> 
+            <button className="submitButton" type="submit">New Article</button>
+          </Link>
+        </div>
         <Outlet />
         <ScrollRestoration />
         <Scripts />

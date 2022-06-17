@@ -1,18 +1,11 @@
 @font-face {
   font-family: "Harding Text Web Regular";
   src: url("//db.onlinewebfonts.com/t/7732caef9ed946f7916b3f650e8837c2.eot");
-  src: url("//db.onlinewebfonts.com/t/7732caef9ed946f7916b3f650e8837c2.eot?#iefix")
-      format("embedded-opentype"),
+  src: url("//db.onlinewebfonts.com/t/7732caef9ed946f7916b3f650e8837c2.eot?#iefix") format("embedded-opentype"),
     url("//db.onlinewebfonts.com/t/7732caef9ed946f7916b3f650e8837c2.woff2") format("woff2"),
     url("//db.onlinewebfonts.com/t/7732caef9ed946f7916b3f650e8837c2.woff") format("woff"),
     url("//db.onlinewebfonts.com/t/7732caef9ed946f7916b3f650e8837c2.ttf") format("truetype"),
-    url("//db.onlinewebfonts.com/t/7732caef9ed946f7916b3f650e8837c2.svg#Harding Text Web Regular")
-      format("svg");
-}
-
-.main {
-  margin: 40px auto;
-  width: 800px;
+    url("//db.onlinewebfonts.com/t/7732caef9ed946f7916b3f650e8837c2.svg#Harding Text Web Regular") format("svg");
 }
 
 .c-article-identifiers {
@@ -34,6 +27,32 @@
   border-right: 1px solid #6f6f6f;
   margin-right: 8px;
   padding-right: 8px;
+}
+
+.c-article-identifiers__item#input {
+  color: #6f6f6f;
+  border: 1px solid #6f6f6f;
+  margin: 10px 8px 0 0;
+  padding-right: 8px;
+}
+
+.c-article-identifiers__item#input:invalid {
+  outline-color: red;
+
+}
+
+.c-article-identifiers__item#linkPaste {
+  color: black;
+  border: 1px solid #6f6f6f;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding: 4px 4px 4px;
+  box-sizing: content-box;
+  width: 98.75%;
+}
+
+.c-article-identifiers__item#linkPaste:invalid {
+  border: 1px solid red;
 }
 
 .c-article-identifiers__item:first-child {
@@ -65,7 +84,36 @@
   letter-spacing: normal;
   color: #222;
   box-sizing: inherit;
+
 }
+
+.blurb#input, .title#input {
+  padding-left: 0;
+  padding-right: 0;
+  margin: 10px 0 0 0;
+  border: 0;
+  outline: 1px solid black; 
+  outline-offset: -1px;
+  box-sizing: content-box;
+  width: 98.75%;
+}
+
+.blurb#input:focus, .title#input:focus {
+  outline: 2px solid black;
+}
+
+.blurb#input::placeholder, .title#input::placeholder {
+  padding: 2px 1px 2px;
+}
+
+.blurb#input:valid, .blurb#input:invalid, .title#input:valid, .title#input:invalid {
+  padding: 2px 5px 2px;
+}
+
+.blurb#input:invalid, .title#input:invalid {
+  outline-color: red;
+}
+
 
 .author {
   list-style: none;
@@ -122,7 +170,7 @@ button {
   align-items: center;
   border-color: transparent;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
-  "Helvetica Neue", sans-serif;
+    "Helvetica Neue", sans-serif;
   color: #6f6f6f;
 }
 
@@ -144,10 +192,12 @@ button a .no-underline {
 .image {
   width: 100%;
   height: auto;
+  /* padding: 8px; */
 }
 
 .body {
-  margin-top: 30px;
+  /* margin-top: 30px; */
+  margin: 0 0 0 0;
   font-family: "Harding Text Web Regular", Palatino, serif;
   overflow-wrap: break-word;
   word-break: break-word;
@@ -155,19 +205,49 @@ button a .no-underline {
   font-size: 18px;
 }
 
-.body p {
+.body#editor {
   margin: 0 0 28px;
-  padding: 0;
+  margin: 0 0 0 0;
+  font-family: "Harding Text Web Regular", Palatino, serif;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  color: #222;
+  font-size: 18px;
+  padding: 6px;
 }
 
-.editor-paragraph {
-  color: black;
+.title#editor {
   margin: 0;
+  padding: 6px;
+  font-size: 26px;
 }
 
-.toolbar {
-  display: flex;
-  justify-items: center;
+.image#editor {
+  max-width: 750px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 6px;
+}
+
+.ProseMirror {
+  border: 0;
+  box-sizing: content-box;
+  width: 100%;
+  outline-style: solid;
+  outline-width: 1px;
+  outline-color: black;
+  margin-bottom: 16px;
+  padding-top: 10px;
+}
+
+.ProseMirror:focus {
+  outline-width: 2px;
+  outline-color: black;
+}
+
+.ProseMirror#viewOnly {
+  outline-width: 0;
 }
 
 .notselected {
@@ -181,7 +261,7 @@ button a .no-underline {
   margin-right: 4px;
 }
 
-.selected  {
+.selected {
   background-color: rgb(214, 214, 214);
   padding: 2px;
   display: flex;
@@ -191,4 +271,202 @@ button a .no-underline {
   border-radius: 4px;
   padding: 4px;
   margin-right: 4px;
+}
+
+.validation-error {
+  font-family: "Harding Text Web Regular", Palatino, serif;
+  color: red;
+  position: relative;
+  display: inline-block;
+  width: 300px;
+}
+
+.submitButton {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 500px;
+  transition-property: background-color, border-color, color, box-shadow, filter;
+  transition-duration: .3s;
+  border: 1px solid transparent;
+  letter-spacing: 2px;
+  min-width: 160px;
+  text-transform: uppercase;
+  white-space: normal;
+  font-weight: 700;
+  text-align: center;
+  padding: 17px 48px;
+  color: #fff;
+  background-color: rgb(93, 233, 116);
+  height: 48px;
+}
+
+
+.submitButton:hover {
+  transform: scale(1.04);
+  background-color: rgb(70, 168, 87);
+}
+
+.submitButton#delete {
+  background-color: red;
+}
+
+.submitButton#delete:hover {
+  transform: scale(1.04);
+  background-color: rgb(163, 16, 16);
+
+}
+
+#wrapper {
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 75px;
+}
+
+.row {
+  width: 220px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.person {
+  margin-bottom: 50px;
+  margin-top: 60px;
+  width: 180px;
+  /* height: 330px; */
+}
+
+.person img {
+  margin-top: 10px;
+  border-radius: 40px;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-left: 50px;
+}
+
+.person .name {
+  text-align: center;
+  margin: auto;
+
+  margin-top: -94px;
+  padding-top: 100px;
+  padding-left: 12px;
+  padding-right: 12px;
+
+  width: fit-content;
+
+  font-size: 1rem;
+  font-weight: bold;
+  color: #4a6592;
+  padding-bottom: 10px;
+  /* color: rgb(221, 221, 221); */
+
+  background-color: white;
+  border-radius: 15px;
+}
+
+.card {
+  margin-bottom: 50px;
+  margin-top: 50px;
+  width: 180px;
+  /* height: 330px; */
+  background-color: white;
+  border-radius: 20px 20px 15px 15px;
+  text-align: left;
+}
+
+.card img {
+  border-radius: 15px 15px 0px 0px;
+  width: 180px;
+  height: 150px;
+  object-fit: cover;
+
+  /* This line makes it so that the top is attached to the top when it clips
+       Delete it if you want the middle to be aligned to the middle instead*/
+  object-position: center top;
+}
+
+.card div {
+  font-family: "Segoe UI";
+  margin-left: 20px;
+  width: 140px;
+}
+
+.card .name {
+  margin-top: 20px;
+
+  font-size: 0.5rem;
+  font-weight: bold;
+  color: rgb(172, 172, 172);
+}
+
+.card .title {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #4a6592;
+  text-decoration: none;
+}
+
+.card .blurb {
+  margin-top: 10px;
+
+  font-size: 0.6rem;
+  color: rgb(172, 172, 172);
+}
+
+.card div:last-child {
+  padding-bottom: 17px;
+}
+
+#header {
+  width: 100%;
+  height: 80px;
+  background-color: #0f172a;
+  border-bottom: 2px #1e293b solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#header .soraLogo {
+  padding: 5px;
+  height: 60px;
+}
+
+html,body{ 
+  margin:0; 
+  padding:0; 
+  height:100%; 
+  width:100%;
+  overflow: hidden;
+} 
+
+.indexPage {
+  background-color: #4a6592;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+}
+
+.main {
+  margin: 40px auto;
+  margin-bottom: 100px;
+  width: 800px;
+  padding-bottom: 60px;
+}
+
+.articlePage {
+  background-color: white;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+}
+
+.buttonSection {
+  display: flex;
+  justify-content: space-between;
 }

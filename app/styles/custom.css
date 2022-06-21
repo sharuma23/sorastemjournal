@@ -319,109 +319,6 @@ button a .no-underline {
 
 }
 
-#wrapper {
-  margin: 0 auto;
-  text-align: center;
-  padding-bottom: 75px;
-}
-
-.row {
-  width: 220px;
-  display: inline-block;
-  vertical-align: top;
-}
-
-.person {
-  margin-bottom: 50px;
-  margin-top: 60px;
-  width: 180px;
-  /* height: 330px; */
-}
-
-.person img {
-  margin-top: 10px;
-  border-radius: 40px;
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  margin-left: 50px;
-}
-
-.person .name {
-  text-align: center;
-  margin: auto;
-
-  margin-top: -94px;
-  padding-top: 100px;
-  padding-left: 12px;
-  padding-right: 12px;
-
-  width: fit-content;
-
-  font-size: 1rem;
-  font-weight: bold;
-  color: #4a6592;
-  padding-bottom: 10px;
-  /* color: rgb(221, 221, 221); */
-
-  background-color: white;
-  border-radius: 15px;
-}
-
-.card {
-  margin-bottom: 50px;
-  margin-top: 50px;
-  width: 180px;
-  /* height: 330px; */
-  background-color: white;
-  border-radius: 20px 20px 15px 15px;
-  text-align: left;
-}
-
-.card img {
-  border-radius: 15px 15px 0px 0px;
-  width: 180px;
-  height: 150px;
-  object-fit: cover;
-
-  /* This line makes it so that the top is attached to the top when it clips
-       Delete it if you want the middle to be aligned to the middle instead*/
-  object-position: center top;
-}
-
-.card div {
-  font-family: "Segoe UI";
-  margin-left: 20px;
-  width: 140px;
-}
-
-.card .name {
-  margin-top: 20px;
-
-  font-size: 0.5rem;
-  font-weight: bold;
-  color: rgb(172, 172, 172);
-}
-
-.card .title {
-  margin-top: 10px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: #4a6592;
-  text-decoration: none;
-}
-
-.card .blurb {
-  margin-top: 10px;
-
-  font-size: 0.6rem;
-  color: rgb(172, 172, 172);
-}
-
-.card div:last-child {
-  padding-bottom: 17px;
-}
-
 #header {
   width: 100%;
   height: 80px;
@@ -469,4 +366,131 @@ html,body{
 .buttonSection {
   display: flex;
   justify-content: space-between;
+}
+
+.wrapper {
+  padding-top: 100px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, 180px);
+  gap: 20px;
+  grid-auto-rows: 150px;
+  grid-auto-flow: dense;
+
+  width: 780px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 15px;
+}
+
+.card img {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.card .text {
+  margin-left: 20px;
+  margin-right: 15px;
+  margin-top: 15px;
+  text-decoration: none;
+}
+
+.card .name {
+  font-size: 0.5rem;
+  font-weight: bold;
+  color: rgb(172, 172, 172);
+}
+
+.card .title {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #4a6592;
+}
+
+.card .blurb {
+  margin-top: 10px;
+  font-size: 0.6rem;
+  color: rgb(172, 172, 172);
+}
+
+.card div > div {
+  font-family: "Segoe UI";
+}
+
+.small {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.small img {
+  display: none;
+}
+
+.small-img {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.small-img .text {
+  display: none;
+}
+
+.tall {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.tall img {
+  border-radius: 15px 15px 0px 0px;
+  width: 180px;
+  height: 150px;
+}
+
+.wide {
+  display: flex;
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.wide img {
+  width: 180px;
+  height: 150px;
+  flex-shrink: 0;
+}
+
+.wide .left {
+  border-radius: 15px 0px 0px 15px;
+}
+
+.wide .right {
+  border-radius: 0px 15px 15px 0px;
+  margin-left: auto;
+}
+
+.fat {
+  grid-column: span 2;
+  grid-row: span 2;
+
+  position: relative;
+}
+
+.fat img {
+  width: 380px;
+  height: 200px;
+}
+
+.fat .top {
+  border-radius: 15px 15px 0px 0px;
+}
+
+.fat .botom {
+  border-radius: 0px 0px 15px 15px;
+
+  position: absolute;
+  bottom: 0;
 }

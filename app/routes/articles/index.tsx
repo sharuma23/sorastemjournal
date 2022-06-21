@@ -4,7 +4,6 @@ import { prisma } from "~/db.server";
 import { Article } from "@prisma/client";
 import banana from 'public/defaultbanana.png'
 import Card from "~/components/card";
-import Profile from "~/components/card";
 
 export const loader: LoaderFunction = async () => {
   const articles: Article[] = await prisma.article.findMany();
@@ -14,42 +13,31 @@ export const loader: LoaderFunction = async () => {
 
 export default function ArticleIndexPage() {
   const data = useLoaderData() as Article[];
-  const numberOfArticles = data.length;
-  const divisor = numberOfArticles/4;
-  
-  const articleList = data.map((article: Article) =>
+
+
+  const articleList = data.map((article: Article) => {
+    const cardSize = Math.floor(Math.random() * 2);
+
+    return (
       <Card
         key={article.id}
         imageLink={article.profilePhoto ? article.profilePhoto : banana}
         name={article.profileName ? article.profileName : "No Name"}
         title={article.title}
         blurb={article.profileBio ? article.profileBio : "No biography"}
-        clickable={true}
         id={article.id}
+        cardSize={cardSize === 0 ? 'tall' : 'wide'}
+        imageDirection="left"
       />
-      
+    )
+  }
   )
 
   return (
     <>
       <div className="indexPage">
-        <div id="wrapper">
-          <div className="row">
-            {articleList}
-            {articleList}
-          </div>
-          <div className="row">
-            {articleList}
-            {articleList}
-          </div>
-          <div className="row">
-            {articleList}
-            {articleList}
-          </div>
-          <div className="row">
-            {articleList}
-            {articleList}
-          </div>
+        <div className="wrapper">
+          {articleList}
         </div>
       </div>
     </>

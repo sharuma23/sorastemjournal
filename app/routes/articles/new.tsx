@@ -7,7 +7,6 @@ import { prisma } from "~/db.server";
 import banana from 'public/defaultbanana.png';
 import Card from "~/components/card";
 
-
 function validate(input: any, minimumLength: number, errorMessage: string) {
   if (typeof input !== 'string' || input.length < minimumLength) {
     return errorMessage;
@@ -95,14 +94,6 @@ export default function NewArticle() {
         backgroundColor: '#4a6592',
         padding: '20px'
       }}>
-        {/* <Card
-          imageLink={articleData.profilePhoto}
-          name={articleData.profileName}
-          title={articleData.title}
-          blurb={articleData.profileBio}
-          clickable={false}
-          id={''}
-        /> */}
       </div>
       <div className="main">
         <ul className="c-article-identifiers">
@@ -185,7 +176,7 @@ export default function NewArticle() {
           <input type="hidden" name="article-title" value={articleData.title} />
           <input type="hidden" name="profileBio" value={articleData.profileBio} />
           <input type="hidden" name="article-body" value={editorOutput} />
-          <input type="hidden" name="profilePhoto" value={"https://cdn.discordapp.com/attachments/895795779439038464/986803876009246790/unknown.png"} />
+          <input type="hidden" name="profilePhoto" value={articleData.profilePhoto} />
           <div className="buttonSection">
             <input
               type="text"

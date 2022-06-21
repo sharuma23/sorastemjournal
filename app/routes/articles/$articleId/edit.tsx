@@ -60,8 +60,6 @@ export const action: ActionFunction = async ({ params, request }) => {
   const formData = await request.formData();
   const values = Object.fromEntries(formData);
 
-  console.log(values['article-title']);
-
   //validation
   const errors = {
     title: validate(values['article-title'], 5, 'Title must be at least 5 characters long'),
